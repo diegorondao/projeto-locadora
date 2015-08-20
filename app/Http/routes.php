@@ -17,6 +17,8 @@ Route::get('contato','NavegacaoController@contato');
 Route::get('reviews','NavegacaoController@reviews');
 Route::get('admin','NavegacaoController@admin');
 
+Route::resource('usuario','UsuarioController');
+
 /*
 
 Route::get('/', function () {

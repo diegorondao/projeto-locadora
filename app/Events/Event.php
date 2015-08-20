@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Locadora\Events;
 
 abstract class Event
 {

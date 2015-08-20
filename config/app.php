@@ -136,14 +136,16 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
         Collective\Html\HtmlServiceProvider::class,
-
+        
+        
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Locadora\Providers\AppServiceProvider::class,
+        Locadora\Providers\EventServiceProvider::class,
+        Locadora\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -194,7 +196,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+    
     ],
 
 ];

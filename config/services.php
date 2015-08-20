@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => App\User::class,
+        'model'  => Locadora\User::class,
         'key'    => '',
         'secret' => '',
     ],

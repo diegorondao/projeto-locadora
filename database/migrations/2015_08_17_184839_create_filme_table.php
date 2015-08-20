@@ -5,34 +5,37 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFilmeTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('filme', function (Blueprint $table)
-        {
-            $table->increments('id');
-            $table->string('nome');
-            $table->string('cast');
-            $table->string('duracao');
-            $table->string('direcao');
-            $table->timestamps();
-            
-            $table->integer('genero_id')->unsigned();
-            $table->foreign('genero_id')->references('id')->on('genero');
-        });
-    }
+   	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('movies', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('name');
+			/*
+			| En el video tutorial olvide agregar el Path de las imagenes xD
+			*/
+			$table->string('path');
+			$table->string('cast');
+			$table->string('direction');
+			$table->string('duration');
+			$table->timestamps();
+			$table->integer('genre_id')->unsigned();
+			$table->foreign('genre_id')->references('id')->on('genres');
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('movies');
+	}
 }
