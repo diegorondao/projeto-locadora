@@ -14,14 +14,14 @@ use Illuminate\Routing\Route;
 
 class UsuarioController extends Controller
 {	
-	/*
+	
 	public function __construct(){
-		$this->middleware('auth');
-		$this->middleware('admin');
+	//	$this->middleware('auth');
+	//	$this->middleware('admin');
 		$this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
 	}
 
-	*/
+	
 	public function find(Route $route){
 		$this->user = User::find($route->getParameter('usuario'));
 	}
@@ -80,8 +80,8 @@ class UsuarioController extends Controller
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
-		return view('usuario.edit',['user'=>$user]);
+		
+		return view('usuario.edit',['user'=>$this->user]);
 	}
 
 	/**
@@ -92,9 +92,8 @@ class UsuarioController extends Controller
 	 */
 	public function update($id, Request $request)
 	{
-		$user = User::find($id);
-		$user -> fill($request ->all());
-		$user ->save();
+		$this->user-> fill($request ->all());
+		$this->user ->save();
 		
 		//mensagem que será apresentando via Session
 		Session::flash('message','Registro Atualizado com Sucesso !!');
@@ -111,8 +110,7 @@ class UsuarioController extends Controller
 	 */
 	public function destroy($id)
 	{
-		$user = User::find($id);
-		$user ->delete();
+		$this->user ->delete();
 		Session::flash('message','Ação realizada com Sucesso! ');
 		return Redirect::to('/usuario');
 	}

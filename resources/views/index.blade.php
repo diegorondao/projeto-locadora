@@ -1,6 +1,7 @@
 @extends('layouts.principal')
 
 @section('conteudo')
+	@include('alerts.errors')
 	<div class="header">
 			<div class="top-header">
 				<div class="logo">
@@ -16,8 +17,9 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="header-info">
-				<h1> </h1>
-				{!!Form::open(['route'=>'usuario.store', 'method'=>'POST'])!!}
+				
+				
+				{!!Form::open(['route'=>'log.store', 'method'=>'POST'])!!}
 					<div class="form-group">
 						{!!Form::label('email','E-mail:')!!}	
 						{!!Form::email('email',null,['class'=>'form-control', 'placeholder'=>'mail@mail.com'])!!}
