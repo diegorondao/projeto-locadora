@@ -4,6 +4,8 @@ namespace Locadora\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Locadora\Http\Requests;
+use Locadora\Http\Requests\UserCreateRequest;
+use Locadora\Http\Requests\UserUpdateRequest;
 use Locadora\Http\Controllers\Controller;
 use Locadora\User;
 use Session;
@@ -51,11 +53,11 @@ class UsuarioController extends Controller
 	 *
 	 * @return Response
 	 */
-		public function store(Request $request)
+		public function store(UserCreateRequest $request)
 	{	
 		User::create($request->all());
 
-		Session::flash('message','Registro Gravado com Sucesso !! ');
+		Session::flash('message','Registro realizado com sucesso !! ');
 		return Redirect::to('/usuario');
 	}
 
@@ -109,8 +111,9 @@ class UsuarioController extends Controller
 	 */
 	public function destroy($id)
 	{
-		User::destroy($id);
-		Session::flash('message','Usuario Deletado Corretamente');
+		$user = User::find($id);
+		$user ->delete();
+		Session::flash('message','Ação realizada com Sucesso! ');
 		return Redirect::to('/usuario');
 	}
 }
