@@ -2,6 +2,7 @@
 
 @section('conteudo')
 	@include('alerts.errors')
+	@include('alerts.request')
 	<div class="header">
 			<div class="top-header">
 				<div class="logo">

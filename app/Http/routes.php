@@ -18,8 +18,9 @@ Route::get('reviews','NavegacaoController@reviews');
 Route::get('admin','NavegacaoController@admin');
 
 Route::resource('usuario','UsuarioController');
-Route::resource('log','LogController');
 
+Route::resource('log','LogController');
+Route::get('logout','LogController@logout');
 /*
 
 Route::get('/', function () {
